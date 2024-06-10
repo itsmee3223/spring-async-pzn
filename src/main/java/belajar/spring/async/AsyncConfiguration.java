@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 @Configuration
 public class AsyncConfiguration {
@@ -16,5 +17,10 @@ public class AsyncConfiguration {
     @Bean
     public Executor singleTaskExecutor(){
         return Executors.newSingleThreadExecutor();
+    }
+
+    @Bean
+    public ScheduledExecutorService taskScheduler(){
+        return Executors.newScheduledThreadPool(10);
     }
 }
