@@ -13,14 +13,14 @@ import java.util.concurrent.Future;
 @Component
 public class HelloAsync {
 
-    @Async
+    @Async("taskExecutor")
     @SneakyThrows
     public void hello(){
         Thread.sleep(Duration.ofSeconds(2));
         log.info("run hello after 2 seconds : {}", Thread.currentThread());
     }
 
-    @Async
+    @Async("singleTaskExecutor")
     @SneakyThrows
     public Future<String> helloFuture(final String name){
         CompletableFuture<String> future = new CompletableFuture<>();
