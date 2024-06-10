@@ -21,4 +21,9 @@ public class Job {
     public Long getValue(){
         return atomicLong.get();
     }
+
+    @Scheduled(cron = "*/2 * * * * *")
+    public void cron(){
+        log.info("run cron job every 2 seconds");
+    }
 }
